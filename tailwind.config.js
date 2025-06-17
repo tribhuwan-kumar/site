@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import portfolio from './src/portfolio'
+import personal from './src/personal'
 
 module.exports = {
     darkMode: 'class',
@@ -10,8 +10,8 @@ module.exports = {
     theme: {
         extend: { 
             colors: {
-                'button-color': portfolio.colors.buttonColor,
-                'link-color': portfolio.colors.LinkHighlightColor
+                'button-color': personal.colors.buttonColor,
+                'link-color': personal.colors.LinkHighlightColor
             }
         },
     },

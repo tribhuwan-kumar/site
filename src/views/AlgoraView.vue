@@ -1,8 +1,8 @@
 <template>
   <section
-    class="w-full mt-28"
-    ref="leetcodeSection"
-    id="leetcode-section"
+    class="w-full mt-40"
+    ref="algoraSection"
+    id="algora-section"
   >
     <div
       :class="[
@@ -22,11 +22,9 @@
         ]"
       >
         <h1 class="text-2xl lg:text-3xl font-bold pr-5">
-          <a :href="content.profileLink" target="_blank">LeetCode</a>
+          <a :href="content.algora" target="_blank">OSS Contributions</a>
         </h1>
-        <div
-          class="flex-grow border-t border-black dark:border-white border-1"
-        ></div>
+        <div class="flex-grow border-t border-black dark:border-white border-1"></div>
       </div>
     </div>
     <div
@@ -38,24 +36,13 @@
         'transition-all motion-reduce:transition-none duration-500',
       ]"
     >
-      <div
-        class="flex-grow border-t border-black/20 dark:border-white/50 border-1"
-      ></div>
       <h2 class="pr-4 pl-4 font-bold">Stats</h2>
-      <div
-        class="flex-grow border-t border-black/20 dark:border-white/50 border-1"
-      ></div>
+      <div class="flex-grow border-t border-black/20 dark:border-white/50 border-1"></div>
     </div>
-    <div v-if="darkModeActive">
-      <div class="flex items-center justify-center">
-        <img :src="content.darkModeleetcode" alt="" />
-      </div>
+    <div class="flex items-center m-4 p-4 rounded-lg border border-slate-500/30 justify-center">
+      <img :src="content.img" alt="algora-profile"/>
     </div>
-    <div v-else>
-      <div class="flex items-center justify-center">
-        <img :src="content.leetcode" alt="Leetcode" />
-      </div>
-    </div>
+    <span class="text-slate-500 dark:text-slate-300 mt-2 text-base">Contributed projects on <a href="https://algora.io/" target="_blank">algora.io</a></span>
   </section>
 </template>
 
@@ -66,16 +53,15 @@
   const props = defineProps({
     content: Object,
     transitions: Object,
-    darkModeActive: Boolean,
   });
 
-  const leetcodeSection = ref({});
-
+  const algoraSection = ref({});
   const visible =
     props.transitions.active &&
     window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-      ? onIntersect(leetcodeSection, !!props.transitions.showOnce, {
+      ? onIntersect(algoraSection, !!props.transitions.showOnce, {
           threshold: props.transitions.thresholdOption,
         })
       : true;
 </script>
+
